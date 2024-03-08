@@ -11,6 +11,7 @@ const themify = require('./utils/themify')
 const PLACES = 7
 
 const app = express()
+let PORT = process.env.PORT || 3000;
 
 app.use(express.static('assets'))
 app.use(compression())
@@ -67,7 +68,7 @@ app.get('/heart-beat', (req, res) => {
   console.log('heart-beat')
 });
 
-const listener = app.listen(config.app.port || 3000, () => {
+const listener = app.listen(PORT, () => {
   console.log('Your app is listening on port ' + listener.address().port)
 })
 
