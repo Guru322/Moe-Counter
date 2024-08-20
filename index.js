@@ -25,8 +25,8 @@ app.get('/', (req, res) => {
 });
 
 // get the image
-app.get('/get/@:name', async (req, res) => {
-  const { name } = req.params
+app.get('/get/:name', async (req, res) => {
+  const name = decodeURIComponent(req.params.name);
   const { theme = 'moebooru' } = req.query
   let length = PLACES
 
